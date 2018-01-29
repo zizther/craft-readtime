@@ -1,10 +1,10 @@
-<?php  
+<?php
 namespace Craft;
 
-use Twig_Extension;  
+use Twig_Extension;
 use Twig_Filter_Method;
 
-class ReadTimeTwigExtension extends Twig_Extension  
+class ReadTimeTwigExtension extends Twig_Extension
 {
     public function getName()
     {
@@ -18,11 +18,8 @@ class ReadTimeTwigExtension extends Twig_Extension
         );
     }
 
-    public function readTime($content, $wordsPerMin='')
+    public function readTime($content, $wordIndentifier=null, $wordsPerMin=200)
     {
-        // Read speed
-        $readSpeed = isset($wordsPerMin) && $wordsPerMin != "" ? $wordsPerMin : 200;
-
         // Clean content
         $content = strip_tags($content);
         $content = str_replace("\n", ' ', $content);
@@ -34,22 +31,28 @@ class ReadTimeTwigExtension extends Twig_Extension
         $count = count($words);
 
         // Calculate time
-        $fractionTime = $count / $readSpeed;
+        $fractionTime = $count / $wordsPerMin;
 
-        // Return if less than 1 minute
-        if( $fractionTime < 1 ) {
-            $readTime = '> 1 min';
+        // If less than 1 minute
+        if ($fractionTime < 1) {
+			// Test if identifier
+			$readTime = $wordIndentifier ? '< 1 '.$wordIndentifier : $fractionTime;
         }
         else {
             // Round fraction up
-            $resultTime = ceil($count / $readSpeed);
-            
-            $minTxt = $resultTime == 1 ? 'min' : 'mins';
-            $resultTime = $resultTime . ' ' . $minTxt;
-            
+            $resultTime = ceil($count / $wordsPerMin);
+
+			if ($wordIndentifier) {
+	            $txt = $resultTime == 1 ? $wordIndentifier : $wordIndentifier.'s';
+	            $resultTime = $resultTime.' '.$txt;
+			}
+			else {
+				$resultTime = $resultTime;
+			}
+
             $readTime = $resultTime;
         }
-        
+
         return $readTime;
     }
 }

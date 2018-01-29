@@ -1,9 +1,9 @@
 <?php
 namespace Craft;
 class ReadTimePlugin extends BasePlugin
-{   
-    protected $_version = '1.0.0',
-      $_schemaVersion = '1.0.0',
+{
+    protected $_version = '1.1.0',
+      $_schemaVersion = '1.1.0',
       $_name = 'Read Time',
       $_url = 'https://github.com/zizther/craft_readtime',
       $_releaseFeedUrl = 'https://raw.githubusercontent.com/zizther/craft_readtime/master/releases.json',
@@ -12,7 +12,7 @@ class ReadTimePlugin extends BasePlugin
       $_developer = 'Nathan Reed',
       $_developerUrl = 'http://vimia.co.uk/',
       $_minVersion = '2.0';
-    
+
     public function getName()
     {
         return Craft::t($this->_name);
@@ -53,13 +53,13 @@ class ReadTimePlugin extends BasePlugin
     {
         return $this->_minVersion;
     }
-    
-    
+
+
     // Twig Extension
-    public function addTwigExtension()  
+    public function addTwigExtension()
     {
         Craft::import('plugins.readtime.twigextensions.ReadTimeTwigExtension');
-    
+
         return new ReadTimeTwigExtension();
     }
 }
