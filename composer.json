@@ -1,8 +1,8 @@
 {
     "name": "zizther/craft-readtime",
     "description": "Calculate the estimated read time for content.",
-    "type": "craft-plugin",
     "version": "2.0.0",
+    "type": "craft-plugin",
     "keywords": [
         "craft",
         "cms",
