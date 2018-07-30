@@ -1,0 +1,41 @@
+{
+    "name": "zizther/craft-readtime",
+    "description": "Calculate the estimated read time for content.",
+    "type": "craft-plugin",
+    "version": "2.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "read time",
+        "average read time"
+    ],
+    "support": {
+        "docs": "https://github.com/zizther/craft-readtime/blob/master/README.md",
+        "issues": "https://github.com/zizther/craft-readtime/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nathan Reed",
+            "homepage": "https://github.com/zizther"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "zizther\\readtime\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Read Time",
+        "handle": "read-time",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/zizther/craft-readtime/master/CHANGELOG.md",
+        "class": "zizther\\readtime\\readtime"
+    }
+}
