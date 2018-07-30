@@ -2,6 +2,9 @@
 
 Calculate the estimated read time for content.
 
+
+If you are looking for the Craft 2 plugin you can find that under the [v1 branch](https://github.com/zizther/craft-readtime/tree/v1).
+
 ## Installation
 
 #### Requirements
